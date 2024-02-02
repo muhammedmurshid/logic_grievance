@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="logic_grievance_online_form">
+        <title>Logic Grievance Form</title>
+        <t t-call="website.layout">
+            <t t-name="GrievanceTemplate">
+                <!--                <script type="text/javascript">-->
+                <!--                    $(document).ready(function () {-->
+                <!--                    $('#email_grievance').on('click', function () {-->
+                <!--                    const field2Value = $('#name').val();-->
+                <!--                    console.log('Value of Field 2:', field2Value);-->
+                <!--                    });-->
+                <!--                    });-->
+                <!--                </script>-->
+                <!--                <script type="text/javascript" src="logic_grievance/static/src/js/grievance.js"/>-->
+                <div id="wrap_grievance" class="oe_structure oe_empty">
+                </div>
+
+                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <form action="/grievance_form/submit/" method="post" enctype="multipart/form-data"
+                              class="o_mark_required" data-mark="*" data-model_name="" data-success-page="">
+                            <br></br>
+                            <h3 align="center" style="background-color:#f1f2eb">
+                                <u>LOGIC GRIEVANCE FORM</u>
+                            </h3>
+                            <br></br>
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" id="grievance"/>
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor" id="name_grievance">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Name</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="name" type="text" class="form-control s_website_form_input"
+                                                   name="name" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Phone</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="phone_grievance" type="number"
+                                                   class="form-control s_website_form_input"
+                                                   name="phone" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Email</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="email_grievance" type="email"
+                                                   class="form-control s_website_form_input"
+                                                   name="email" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px"
+                                               for="studio1">
+                                            <span class="s_website_form_label_content">Course</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="course_id" id="course_grievance"
+                                                    t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="course or []" t-as="courses">
+                                                    <option t-att-value="courses.id">
+                                                        <t t-esc="courses.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px"
+                                               for="studio1">
+                                            <span class="s_website_form_label_content">Batch</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="batch_id" id="batch_grievance"
+                                                    t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="batch or []" t-as="batches">
+                                                    <option t-att-value="batches.id">
+                                                        <t t-esc="batches.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px"
+                                               for="studio1">
+                                            <span class="s_website_form_label_content">Branch</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="branch_id" id="branch_grievance"
+                                                    t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="branch or []" t-as="branches">
+                                                    <option t-att-value="branches.id">
+                                                        <t t-esc="branches.branch_name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Faculty</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="faculty" type="text"
+                                                   class="form-control s_website_form_input"
+                                                   name="faculty" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Mode Of Study</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="mode_of_study" id="mode_of_study_grievance"
+                                                    t-attf-class="form-control s_website_form_input">
+                                                <option value="online">Online</option>
+                                                <option value="offline">Offline</option>
+                                                <option value="pre_recorded">Pre Recorded</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Description</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="description_grievance" type="text"
+                                                   class="form-control s_website_form_input"
+                                                   name="description"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="studio1">
+                                            <span class="s_website_form_label_content">Priority</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="priority" id="priority_grievance"
+                                                    t-attf-class="form-control s_website_form_input">
+                                                <option value="urgent">Urgent</option>
+                                                <option value="high">High</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px"
+                                               for="studio1">
+                                            <span class="s_website_form_label_content">Type of Issue</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="type_of_issue" id="type_of_issue_grievance"
+                                                    t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="type or []" t-as="type_of_issue">
+                                                    <option t-att-value="type_of_issue.id">
+                                                        <t t-esc="type_of_issue.type"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="char" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">
+                                                Attach File:
+                                            </span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input id="attach_file_grievance" type="file" multiple="true"
+                                                   class="form-control s_website_form_input"
+                                                   name="attach_file"
+                                                   accept="image/*,application/pdf,video/*"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6 s_website_form_field s_website_form_required"
+                                     data-type="text" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <div>
+                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+                                            <label for="vehicle1">I agree</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button"
+                                     align="center">
+                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                    <button type="submit" id="submit_grievance"
+                                            class="btn btn-primary">Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+            </t>
+        </t>
+    </template>
+
+    <template id="tmp_grievance_form_success" name="Customer Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-6 mr-lg-auto oe_structure">
+                            <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                                     data-snippet="s_text_block" data-name="Text">
+                                <div class="container">
+                                    <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/>
+                                    <br/>
+                                    <h1 class="text-center">Thank You!</h1>
+                                    <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                        <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                    </div>
+                                    <h5 class="text-center">
+                                        <span class="fa fa-check-circle"/>
+                                        <span>Your grievance request has been sent
+                                            <b>successfully</b>
+                                        </span>
+                                    </h5>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-4">
+                            <t t-call="website.company_description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_2"/>
+            </div>
+        </t>
+    </template>
+
+</odoo>
