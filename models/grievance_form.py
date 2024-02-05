@@ -16,7 +16,7 @@ class GrievanceForm(models.Model):
     faculty = fields.Char(string="Faculty")
     course_id = fields.Many2one('logic.base.courses', string="Course")
     branch_id = fields.Many2one('logic.base.branches', string="Branch")
-    coordinator = fields.Many2one('res.users', string="Assign to Coordinator", related="batch.academic_coordinator", readonly=False)
+    coordinator = fields.Many2one('res.users', string="Assign to Coordinator", readonly=False)
     priority = fields.Selection([('low', 'Low'), ('medium', 'Medium'), ('high', 'High'), ('urgent', 'Urgent')],
                                 string='Priority')
     expected_resolution_date = fields.Date(string='Expected Closing')
