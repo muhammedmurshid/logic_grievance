@@ -5,15 +5,6 @@
         <title>Logic Grievance Form</title>
         <t t-call="website.layout">
             <t t-name="GrievanceTemplate">
-                <!--                <script type="text/javascript">-->
-                <!--                    $(document).ready(function () {-->
-                <!--                    $('#email_grievance').on('click', function () {-->
-                <!--                    const field2Value = $('#name').val();-->
-                <!--                    console.log('Value of Field 2:', field2Value);-->
-                <!--                    });-->
-                <!--                    });-->
-                <!--                </script>-->
-                <!--                <script type="text/javascript" src="logic_grievance/static/src/js/grievance.js"/>-->
                 <div id="wrap_grievance" class="oe_structure oe_empty">
                 </div>
 
@@ -258,15 +249,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group col-6 s_website_form_field s_website_form_required"
-                                     data-type="text" data-name="Field">
-                                    <div class="row s_col_no_resize s_col_no_bgcolor">
-                                        <div>
-                                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-                                            <label for="vehicle1">I agree</label>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="form-group col-12 s_website_form_submit" data-name="Submit Button"
                                      align="center">
@@ -284,7 +266,7 @@
         </t>
     </template>
 
-    <template id="tmp_grievance_form_success" name="Customer Form Successfully Submitted">
+    <template id="template_grievance_form_success" name="Customer Form Successfully Submitted">
         <t t-call="website.layout">
             <div id="wrap">
                 <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
