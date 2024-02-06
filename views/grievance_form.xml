@@ -65,11 +65,14 @@
         <field name="model">grievance.form</field>
         <field name="arch" type="xml">
             <tree>
+                <field name="create_date"/>
                 <field name="name"/>
                 <field name="phone_number" widget="phone"/>
                 <field name="batch"/>
-                <field name="faculty"/>
+<!--                <field name="faculty"/>-->
                 <field name="type_of_issue"/>
+                <field name="expected_resolution_date"/>
+
                 <!--                <field name="type"/>-->
                 <field name="state" widget="badge" decoration-success="state == 'completed'"
                        decoration-primary="state == 'in_progress'" decoration-info="state == 'draft'"
@@ -97,11 +100,11 @@
               parent="model_logic_grievance_form_main_menu"
               sequence="2"/>
 
-<!--    <template id="assets_backend_field_hide" name="add_javascript_assets" inherit_id="web.assets_frontend">-->
-<!--        <xpath expr="." position="inside">-->
-<!--            <script type="text/javascript" src="/logic_grievance/static/src/js/test.js"></script>-->
-<!--        </xpath>-->
-<!--    </template>-->
+    <!--    <template id="assets_backend_field_hide" name="add_javascript_assets" inherit_id="web.assets_frontend">-->
+    <!--        <xpath expr="." position="inside">-->
+    <!--            <script type="text/javascript" src="/logic_grievance/static/src/js/test.js"></script>-->
+    <!--        </xpath>-->
+    <!--    </template>-->
 
 
 </odoo>
