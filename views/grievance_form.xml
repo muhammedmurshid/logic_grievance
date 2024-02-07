@@ -48,6 +48,7 @@
                             <!--                            <field name="assign_to"/>-->
                             <!--                            <field name="assign_to_users" widget="many2many_tags"/>-->
                             <field name="expected_resolution_date"/>
+                            <field name="action_taken" attrs="{'invisible': [('state', '=', 'draft')]}"/>
                         </group>
                     </group>
                 </sheet>
@@ -68,8 +69,9 @@
                 <field name="create_date"/>
                 <field name="name"/>
                 <field name="phone_number" widget="phone"/>
+                <field name="coordinator" string="Assigned Coordinator"/>
                 <field name="batch"/>
-<!--                <field name="faculty"/>-->
+                <!--                <field name="faculty"/>-->
                 <field name="type_of_issue"/>
                 <field name="expected_resolution_date"/>
 

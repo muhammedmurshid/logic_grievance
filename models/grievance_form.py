@@ -20,6 +20,7 @@ class GrievanceForm(models.Model):
     priority = fields.Selection([('low', 'Low'), ('medium', 'Medium'), ('high', 'High'), ('urgent', 'Urgent')],
                                 string='Priority')
     expected_resolution_date = fields.Date(string='Expected Closing')
+    action_taken = fields.Text(string='Action Taken')
     phone_number = fields.Char(string="Phone Number")
     attach_file = fields.Binary(string="Attach File")
     email_address = fields.Char(string="Email")
