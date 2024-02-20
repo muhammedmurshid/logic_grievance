@@ -9,6 +9,14 @@
             </field>
             <field name="groups" eval="[(4, ref('logic_base.coordinator_logic_base'))]"/>
         </record>
+        <record model="ir.rule" id="grievance_rule_for_super_coordinators">
+            <field name="name">Coordinators rools</field>
+            <field name="model_id" ref="model_grievance_form"/>
+            <field name="domain_force">['&amp;',('state', 'in',
+                ['assigned','in_progress','completed','cancelled']), ('coordinator.id', '=', user.id)]
+            </field>
+            <field name="groups" eval="[(4, ref('logic_base.logic_base_super_coordinator'))]"/>
+        </record>
         <record model="ir.rule" id="grievance_rule_for_coordinators_heads">
             <field name="name">Coordinators Heads rools</field>
             <field name="model_id" ref="model_grievance_form"/>

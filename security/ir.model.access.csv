@@ -2,7 +2,9 @@
 "access_grievance_form_coordinator","access_grievance_form","model_grievance_form","logic_base.coordinator_logic_base",1,1,1,1
 "access_grievance_form_head","access_grievance_form","model_grievance_form","logic_base.academic_head_logic_base",1,1,1,1
 "access_grievance_form_marketing_assign_head","access_grievance_form","model_grievance_form","logic_grievance_assign_heads",1,1,1,1
+"access_grievance_form_super_coordinator","access_grievance_form","model_grievance_form","logic_base.logic_base_super_coordinator",1,1,1,1
 
 "access_grievance_form_type_coord","access_grievance_form_type","model_grievance_form_type","logic_base.coordinator_logic_base",1,1,1,1
 "access_grievance_form_type_head","access_grievance_form_type","model_grievance_form_type","logic_base.academic_head_logic_base",1,1,1,1
 "access_grievance_form_type_marketing_assign_head","access_grievance_form_type","model_grievance_form_type","logic_grievance_assign_heads",1,1,1,1
+"access_grievance_form_type_super_coordinator","access_grievance_form_type","model_grievance_form_type","logic_base.logic_base_super_coordinator",1,1,1,1
