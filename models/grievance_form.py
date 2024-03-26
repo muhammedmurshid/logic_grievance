@@ -42,16 +42,16 @@ class GrievanceForm(models.Model):
             raise UserError(_('Coordinator is not assigned to this batch'))
 
     def action_completed(self):
-        print(self.env.user.id, 'user')
-        activity_id = self.env['mail.activity'].search(
-            [('res_id', '=', self.id), ('user_id', '=', self.env.user.id), (
-                'activity_type_id', '=', self.env.ref('logic_grievance.mail_activity_grievance_form').id)])
-        activity_id.action_feedback(feedback=f'grievance has been fixed.')
+        # print(self.env.user.id, 'user')
+        # activity_id = self.env['mail.activity'].search(
+        #     [('res_id', '=', self.id), ('user_id', '=', self.env.user.id), (
+        #         'activity_type_id', '=', self.env.ref('logic_grievance.mail_activity_grievance_form').id)])
+        # activity_id.action_feedback(feedback=f'grievance has been fixed.')
         self.write({'state': 'completed'})
 
     def action_cancelled(self):
-        activity_id = self.env['mail.activity'].search(
-            [('res_id', '=', self.id), ('user_id', '=', self.env.user.id), (
-                'activity_type_id', '=', self.env.ref('logic_grievance.mail_activity_grievance_form').id)])
-        activity_id.action_feedback(feedback=f'grievance has been rejected.')
+        # activity_id = self.env['mail.activity'].search(
+        #     [('res_id', '=', self.id), ('user_id', '=', self.env.user.id), (
+        #         'activity_type_id', '=', self.env.ref('logic_grievance.mail_activity_grievance_form').id)])
+        # activity_id.action_feedback(feedback=f'grievance has been rejected.')
         self.write({'state': 'cancelled'})
